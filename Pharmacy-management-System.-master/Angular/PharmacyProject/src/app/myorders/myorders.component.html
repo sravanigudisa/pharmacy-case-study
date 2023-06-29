@@ -1,0 +1,89 @@
+<div class="Container" style="color:whitesmoke; background-color: #0bc1f9; padding: 10px;">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 style="color: black; text-align: center; margin-left: 30px;">Drugs</h1>
+    </div>
+    <div class="col-md-2">
+      <button type="button" [routerLink]="['/user']" style="padding: 1px; width:80px; margin: 5px 3px; height: 40px;"
+        class="btn btn-primary">Back</button>
+      <button type="button" [routerLink]="['/home']" style="padding: 1px; width:80px; margin: 5px 3px; height: 40px;"
+        class="btn btn-primary" (click)="LogOut()">Logout</button>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row content">
+
+    <br>
+    <div class="table-wrapper">
+
+
+
+    </div>
+    <div class="drugstable">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>
+              <h4>orderId</h4>
+            </th>
+            <th>
+              <h4>DrugId</h4>
+            </th>
+            <th>
+              <h4>DrugName</h4>
+            </th>
+            <th>
+              <h4>UnitPrice</h4>
+            </th>
+            <th>
+              <h4>Quantity</h4>
+            </th>
+            <th>
+              <h4>Price</h4>
+            </th>
+            <th>
+              <h4>Status</h4>
+            </th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let number of UserOrderList">
+            <td>
+              {{number.orderId}}
+            </td>
+            <td>
+              {{number.drugId}}
+            </td>
+            <td>
+              {{number.drugsName}}
+            </td>
+            <td>
+              {{number.drugPrice}}
+            </td>
+            <td>
+              {{number.drugQuantity}}
+            </td>
+            <td>
+              {{number.drugQuantity*number.drugPrice}}
+            </td>
+            <td>
+              {{number.isPicked}}
+            </td>
+
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+
+</div>
+
+

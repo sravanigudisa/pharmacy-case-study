@@ -1,0 +1,234 @@
+<div class="start" style=" overflow: hidden;">
+  <div class="Container" style="color:whitesmoke; background-color: #0bc1f9; padding: 10px;">
+    <div class="row">
+      <div class="col-md-10">
+        <h1 style="color: black; text-align: center; margin-left: 30px;">Suppliers</h1>
+      </div>
+      <div class="col-md-2">
+        <button type="button" [routerLink]="['/home']" style="padding: 5px; width:80px; margin: 10px;"
+          class="btn btn-primary" (click)="LogOut()">Logout</button>
+        <button type="button" [routerLink]="['/admin']" style="padding: 5px; width:80px; margin: 10px;"
+          class="btn btn-primary">Back</button>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="rowcontent" style="padding-top: 2%;">
+    <div class="container">
+      <div class="row content">
+        <div class="boxContainer">
+          <table id="elementsContainer" class="col-md-8">
+            <tr>
+              <td>
+                <input type="text" placeholder="Search Drug" class="Search">
+              </td>
+              <td>
+                <a href="#"><i class="fa-solid fa-magnifying-glass-plus" id="material-icons"></i></a>
+              </td>
+            </tr>
+          </table>
+          <div id="addsupplier" class="col-md-2">
+
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              AddSupplier
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Supplier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+
+                    <form method="post" #supplierform="ngForm">
+                      <div class="form-group">
+                        <label for="validationCustom01" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="supplierName"
+                          [(ngModel)]="supplieradd.supplierName">
+
+                      </div>
+                      <div class="form-group">
+                        <label for="validationCustom02" class="form-label">Email</label>
+                        <input type="Email" class="form-control" name="emailId" [(ngModel)]="supplieradd.emailId">
+
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="validationCustom05" class="form-label">contact</label>
+                        <input type="text" class="form-control" name="phoneNumber"
+                          [(ngModel)]="supplieradd.phoneNumber ">
+
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="validationCustom05" class="form-label">drug supplied</label>
+                        <input type="text" class="form-control" name="drugAvailable"
+                          [(ngModel)]="supplieradd.drugAvailable ">
+
+                      </div>
+
+                      <div class="modal-footer">
+                        <!-- <a type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</a> -->
+                        <button type="submit" class="btn btn-primary" (click)="OnSumbit(supplierform)">Save
+                          changes</button>
+                      </div>
+                    </form>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <!--Update Modal for supplier -->
+            <div class="modal fade" id="exampleModel" tabindex="-1" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Supplier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+
+
+                    <form method="post" #supplierform="ngForm" (ngSubmit)="UpdateSuppliers(supplieradd)">
+                      <div class="form-group">
+                        <label for="validationCustom01" class="form-label">Name</label>
+                        <input type="text" class="form-control" name="supplierName"
+                          [(ngModel)]="supplieradd.supplierName" value="{{supplieradd.supplierName}}">
+                      </div>
+
+                      <div class="form-group">
+                        <label for="validationCustom02" class="form-label">Email</label>
+                        <input type="Email" class="form-control" name="emailId" [(ngModel)]="supplieradd.emailId"
+                          value="{{supplieradd.emailId}}">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="validationCustom05" class="form-label">contact</label>
+                        <input type="text" class="form-control" name="phoneNumber"
+                          [(ngModel)]="supplieradd.phoneNumber " value="{{supplieradd.phoneNumber}}">
+                      </div>
+
+
+                      <div class="form-group">
+                        <label for="validationCustom05" class="form-label">drug supplied</label>
+                        <input type="text" class="form-control" name="drugAvailable"
+                          [(ngModel)]="supplieradd.drugAvailable" value="{{supplieradd.drugAvailable}}">
+                      </div>
+
+                      <div class="modal-footer">
+                        <!-- <a type="submit" class="btn btn-secondary" data-bs-dismiss="modal">Close</a> -->
+                        <button type="submit" class="btn btn-primary">Save
+                          changes</button>
+                      </div>
+                    </form>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <br>
+
+        <div class="drugstable">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>
+                  <h4>Supplier Id</h4>
+                </th>
+                <th>
+                  <h4>Supplier Name</h4>
+                </th>
+                <th>
+                  <h4>Supplier Email</h4>
+                </th>
+                <th>
+                  <h4>Supplier Contact</h4>
+                </th>
+                <th>
+                  <h4>Drug Supplied</h4>
+                </th>
+                <th>
+                  <h4>Action</h4>
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let number of SupplierList">
+                <td>
+                  {{number.supplierId}}
+                </td>
+                <td>
+                  {{number.supplierName}}
+                </td>
+                <td>
+                  {{number.emailId}}
+                </td>
+                <td>
+                  {{number.phoneNumber}}
+                </td>
+                <td>
+                  {{number.drugAvailable}}
+                </td>
+                <td>
+                  <button type="button" id=edit data-bs-toggle="modal" data-bs-target="#exampleModel"
+                    (click)="SetValues(number)"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button type="button" id=delete (click)="DeleteSupplier(number)"><i
+                      class="fa-solid fa-person-circle-minus"></i></button>
+                </td>
+
+              </tr>
+            </tbody>
+
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+ 
+</div>

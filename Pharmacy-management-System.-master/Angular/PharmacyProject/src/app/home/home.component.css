@@ -1,0 +1,82 @@
+body {
+  width: fit-content;
+  height: fit-content;
+}
+
+.bgrim {
+  width: 100%;
+  height: 400px;
+}
+.body .row {
+  background-size: cover;
+}
+.logo {
+  width: 70px;
+  height: 50px;
+}
+.img {
+  position: relative;
+
+  margin: 200px;
+  left: 300px;
+}
+.bodyimg p {
+  font-style: italic;
+  position: relative;
+  padding: 200px;
+  width: 60%;
+  left: 800px;
+  font-size: 35px;
+  font-weight: 600;
+  color: #8ace42;
+}
+.bodyimg span {
+  color: #19ab65;
+  font-style: Cursive;
+}
+#login {
+  position: relative;
+  top: 5px;
+  border-radius: 5px;
+  width: 75px;
+  height: 37px;
+  margin: 10px;
+  color: rgb(184, 17, 109);
+  background-color: white;
+  border-color: rgb(146, 26, 82);
+  font-size: 20px;
+  font-weight: 500;
+}
+#login:hover {
+  color: white;
+  background-color: rgb(167, 38, 89);
+  border-color: white;
+}
+
+#signup {
+  position: relative;
+  top: 5px;
+  border-radius: 5px;
+  width: 80px;
+  height: 37px;
+  margin: 10px;
+  color: rgb(179, 32, 91);
+  background-color: white;
+  border-color: rgb(173, 26, 95);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+#signup:hover {
+  color: white;
+  background-color: rgb(161, 29, 84);
+  border-color: white;
+}
+
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
